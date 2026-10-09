@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende IPv4, FLSM, VLSM y CIDR con teoría, ejemplos y herramientas interactivas.">
+  <title>NetAcademy | IPv4 y Subnetting</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header class="encabezado">
+  <a class="logo" href="#inicio">Net<span>Academy</span></a>
+  <nav>
+    <a href="#ipv4">IPv4</a><a href="#flsm">FLSM</a><a href="#vlsm">VLSM</a>
+    <a href="#cidr">CIDR</a><a href="#calculadora">Calculadora</a>
+    <a href="#practica">Práctica</a><a href="#recursos">Recursos</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <p class="etiqueta">FUNDAMENTOS DE REDES</p>
+    <h1>Aprende a dividir redes<br>como un profesional.</h1>
+    <p>Explora IPv4, FLSM, VLSM y CIDR con explicaciones sencillas, ejemplos resueltos y herramientas interactivas.</p>
+    <a href="#temas" class="boton">Comenzar a aprender →</a>
+    <div class="hero-datos">
+      <div><strong>04</strong><span>Temas principales</span></div>
+      <div><strong>06+</strong><span>Herramientas de práctica</span></div>
+      <div><strong>100%</strong><span>Enfoque práctico</span></div>
+    </div>
+  </section>
+
+  <section class="introduccion" id="temas">
+    <p class="etiqueta">RUTA DE APRENDIZAJE</p>
+    <h2>¿Qué aprenderás?</h2>
+    <p>Las direcciones IP identifican interfaces en una red. El subnetting permite dividir un bloque de direcciones en redes más pequeñas, organizadas y eficientes.</p>
+    <div class="tarjetas">
+      <a class="tarjeta" href="#ipv4"><span class="numero">01</span><h3>IPv4</h3><p>Direcciones IP, octetos, máscaras y direcciones especiales.</p><span class="ver">Explorar tema →</span></a>
+      <a class="tarjeta" href="#flsm"><span class="numero">02</span><h3>FLSM</h3><p>División de una red en subredes del mismo tamaño.</p><span class="ver">Explorar tema →</span></a>
+      <a class="tarjeta" href="#vlsm"><span class="numero">03</span><h3>VLSM</h3><p>Subredes con diferentes tamaños según las necesidades.</p><span class="ver">Explorar tema →</span></a>
+      <a class="tarjeta" href="#cidr"><span class="numero">04</span><h3>CIDR</h3><p>Prefijos, máscaras y bloques de direcciones IP.</p><span class="ver">Explorar tema →</span></a>
+    </div>
+  </section>
+
+  <section class="contenido" id="ipv4">
+    <p class="etiqueta">TEMA 01 · 3 MIN DE LECTURA</p><h2>IPv4: direcciones de red</h2>
+    <p>IPv4 (Internet Protocol versión 4) es un protocolo de la capa de red que permite direccionar paquetes para que puedan viajar entre redes. Una dirección IPv4 tiene 32 bits y se representa como cuatro números decimales separados por puntos.</p>
+    <div class="ejemplo-ip"><span>192</span>.<span>168</span>.<span>1</span>.<span>10</span></div>
+    <p>Los cuatro grupos se llaman <strong>octetos</strong>. Cada octeto contiene 8 bits, por lo que su valor decimal va de 0 a 255.</p>
+    <h3>Representación binaria</h3>
+    <div class="bloque-codigo">192.168.1.10<br>11000000.10101000.00000001.00001010</div>
+    <h3>Parte de red y parte de host</h3>
+    <p>La máscara de subred o el prefijo CIDR indican qué bits identifican la red y cuáles identifican una interfaz dentro de esa red. En <strong>192.168.1.10/24</strong>, los primeros 24 bits corresponden a la red y quedan 8 bits para hosts.</p>
+    <table><thead><tr><th>Elemento</th><th>Valor</th></tr></thead><tbody>
+      <tr><td>Dirección IP</td><td>192.168.1.10</td></tr><tr><td>Máscara</td><td>255.255.255.0</td></tr><tr><td>Prefijo</td><td>/24</td></tr><tr><td>Red</td><td>192.168.1.0</td></tr><tr><td>Broadcast</td><td>192.168.1.255</td></tr><tr><td>Hosts utilizables habituales</td><td>254</td></tr>
+    </tbody></table>
+    <h3>Direcciones IPv4 especiales</h3>
+    <ul><li><strong>Dirección de red:</strong> identifica el bloque de la subred.</li><li><strong>Broadcast:</strong> permite enviar tráfico a todos los hosts de una subred IPv4 convencional.</li><li><strong>Loopback:</strong> 127.0.0.0/8 se usa para pruebas del propio equipo; 127.0.0.1 es un ejemplo conocido.</li><li><strong>Direcciones privadas:</strong> 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16 se usan dentro de redes privadas.</li></ul>
+    <h3>Clases tradicionales</h3><p>La clasificación por clases es histórica; hoy se utiliza principalmente CIDR para asignar bloques.</p>
+    <table><thead><tr><th>Clase</th><th>Primer octeto</th><th>Uso tradicional</th></tr></thead><tbody>
+      <tr><td>A</td><td>1–126</td><td>Redes grandes</td></tr><tr><td>B</td><td>128–191</td><td>Redes medianas</td></tr><tr><td>C</td><td>192–223</td><td>Redes pequeñas</td></tr><tr><td>D</td><td>224–239</td><td>Multidifusión</td></tr><tr><td>E</td><td>240–255</td><td>Reservada experimentalmente</td></tr>
+    </tbody></table>
+    <div class="nota-teoria"><strong>Recuerda:</strong> una dirección IP identifica una interfaz de red; no necesariamente identifica a una persona ni permanece siempre igual.</div>
+    <label class="check-tema"><input type="checkbox" class="tema-check" value="ipv4"> Marcar IPv4 como completado</label>
+  </section>
+
+  <section class="contenido alterno" id="flsm">
+    <p class="etiqueta">TEMA 02 · 5 MIN DE LECTURA</p><h2>FLSM: subredes del mismo tamaño</h2>
+    <p>FLSM significa <em>Fixed Length Subnet Mask</em>. Divide una red en subredes que utilizan la misma máscara. Cada subred contiene el mismo número de direcciones, aunque algunas pueden quedar sin utilizar.</p>
+    <h3>Fórmulas principales</h3><div class="bloque-codigo">Subredes posibles = 2<sup>s</sup><br>Direcciones por subred = 2<sup>h</sup><br>Hosts utilizables habituales = 2<sup>h</sup> − 2<br>Nuevo prefijo = prefijo original + bits prestados</div>
+    <p><strong>s</strong> es el número de bits prestados para crear subredes. <strong>h</strong> es el número de bits restantes para direcciones dentro de cada subred.</p>
+    <h3>Ejemplo resuelto: 4 subredes</h3><p>Partimos de <strong>192.168.1.0/24</strong> y necesitamos cuatro subredes iguales. Como 2² = 4, prestamos dos bits. El nuevo prefijo es /26 y la máscara es 255.255.255.192.</p>
+    <p>Quedan 6 bits para hosts: 2⁶ = 64 direcciones por bloque. En una subred convencional, 64 − 2 = 62 hosts utilizables.</p>
+    <table><thead><tr><th>Subred</th><th>Red/prefijo</th><th>Rango utilizable</th><th>Broadcast</th></tr></thead><tbody>
+      <tr><td>1</td><td>192.168.1.0/26</td><td>192.168.1.1–.62</td><td>192.168.1.63</td></tr>
+      <tr><td>2</td><td>192.168.1.64/26</td><td>192.168.1.65–.126</td><td>192.168.1.127</td></tr>
+      <tr><td>3</td><td>192.168.1.128/26</td><td>192.168.1.129–.190</td><td>192.168.1.191</td></tr>
+      <tr><td>4</td><td>192.168.1.192/26</td><td>192.168.1.193–.254</td><td>192.168.1.255</td></tr>
+    </tbody></table>
+    <h3>Ventajas y desventajas</h3><ul><li><strong>Ventajas:</strong> diseño uniforme, cálculo sencillo y administración fácil.</li><li><strong>Desventajas:</strong> puede desperdiciar direcciones si cada departamento necesita cantidades muy diferentes.</li></ul>
+    <div class="nota-teoria">FLSM resulta práctico cuando las subredes tienen necesidades parecidas y se busca uniformidad.</div>
+    <label class="check-tema"><input type="checkbox" class="tema-check" value="flsm"> Marcar FLSM como completado</label>
+  </section>
+
+  <section class="contenido" id="vlsm">
+    <p class="etiqueta">TEMA 03 · 5 MIN DE LECTURA</p><h2>VLSM: subredes de diferentes tamaños</h2>
+    <p>VLSM significa <em>Variable Length Subnet Mask</em>. Permite dividir un bloque en subredes con prefijos diferentes para asignar a cada departamento un espacio adecuado a sus necesidades.</p>
+    <h3>Fórmulas principales</h3><div class="bloque-codigo">2<sup>h</sup> − 2 ≥ hosts solicitados<br>Prefijo = 32 − h</div>
+    <h3>Pasos para resolver un ejercicio</h3><ol><li>Ordenar las necesidades de hosts de mayor a menor.</li><li>Encontrar el bloque más pequeño que admita cada cantidad de hosts.</li><li>Asignar los bloques en orden, respetando los límites de cada bloque.</li><li>Verificar que no se superpongan y que quepan en la red original.</li></ol>
+    <h3>Ejemplo: una empresa</h3><p>La empresa tiene 192.168.1.0/24 y necesita redes para 100, 50, 20 y 10 hosts.</p>
+    <table><thead><tr><th>Área</th><th>Necesidad</th><th>Subred</th><th>Hosts disponibles</th><th>Broadcast</th></tr></thead><tbody>
+      <tr><td>Administración</td><td>100</td><td>192.168.1.0/25</td><td>126</td><td>192.168.1.127</td></tr>
+      <tr><td>Ventas</td><td>50</td><td>192.168.1.128/26</td><td>62</td><td>192.168.1.191</td></tr>
+      <tr><td>Informática</td><td>20</td><td>192.168.1.192/27</td><td>30</td><td>192.168.1.223</td></tr>
+      <tr><td>Invitados</td><td>10</td><td>192.168.1.224/28</td><td>14</td><td>192.168.1.239</td></tr>
+    </tbody></table>
+    <h3>Ventajas y desventajas</h3><ul><li><strong>Ventajas:</strong> aprovecha mejor el espacio de direcciones y permite diseñar redes flexibles.</li><li><strong>Desventajas:</strong> requiere planificación cuidadosa y documentación de los rangos asignados.</li></ul>
+    <div class="nota-teoria">VLSM es útil cuando departamentos, enlaces y servicios necesitan cantidades distintas de direcciones.</div>
+    <label class="check-tema"><input type="checkbox" class="tema-check" value="vlsm"> Marcar VLSM como completado</label>
+  </section>
+
+  <section class="contenido alterno" id="cidr">
+    <p class="etiqueta">TEMA 04 · 3 MIN DE LECTURA</p><h2>CIDR: prefijos y bloques</h2>
+    <p>CIDR significa <em>Classless Inter-Domain Routing</em>. Representa redes mediante una longitud de prefijo, sin depender de las clases tradicionales A, B y C. También permite resumir rutas cuando varios bloques consecutivos pueden representarse mediante un prefijo común.</p>
+    <div class="ejemplo-ip">192.168.1.64<span>/26</span></div>
+    <p>El /26 indica que 26 bits pertenecen a la red y quedan 6 bits para las direcciones del bloque.</p>
+    <div class="bloque-codigo">Bits de host = 32 − prefijo<br>Direcciones totales = 2<sup>(32 − prefijo)</sup><br>Wildcard = 255.255.255.255 − máscara</div>
+    <table><thead><tr><th>Prefijo</th><th>Máscara</th><th>Direcciones</th><th>Hosts habituales</th></tr></thead><tbody>
+      <tr><td>/24</td><td>255.255.255.0</td><td>256</td><td>254</td></tr><tr><td>/25</td><td>255.255.255.128</td><td>128</td><td>126</td></tr><tr><td>/26</td><td>255.255.255.192</td><td>64</td><td>62</td></tr><tr><td>/27</td><td>255.255.255.224</td><td>32</td><td>30</td></tr><tr><td>/28</td><td>255.255.255.240</td><td>16</td><td>14</td></tr><tr><td>/29</td><td>255.255.255.248</td><td>8</td><td>6</td></tr><tr><td>/30</td><td>255.255.255.252</td><td>4</td><td>2</td></tr>
+    </tbody></table>
+    <h3>Diferencia entre CIDR y VLSM</h3><p>CIDR es una forma de expresar y asignar bloques usando prefijos. VLSM es una técnica para dividir un bloque en subredes de diferentes tamaños. Ambos utilizan prefijos de longitud variable, pero describen conceptos distintos.</p>
+    <div class="nota-teoria">En redes convencionales /31 puede utilizarse para enlaces punto a punto y /32 identifica una única dirección. El cálculo de hosts debe considerar el contexto de uso.</div>
+    <label class="check-tema"><input type="checkbox" class="tema-check" value="cidr"> Marcar CIDR como completado</label>
+  </section>
+
+  <section class="herramientas" id="calculadora">
+    <p class="etiqueta">HERRAMIENTA INTERACTIVA</p><h2>Calculadora de subredes IPv4</h2>
+    <p>Ingresa una dirección IPv4 y un prefijo para calcular la información de la subred.</p>
+    <div class="panel">
+      <div class="campos"><div><label for="ipEntrada">Dirección IPv4</label><input id="ipEntrada" type="text" value="192.168.1.70" placeholder="192.168.1.70"></div>
+      <div><label for="prefijoRed">Prefijo CIDR</label><select id="prefijoRed"></select></div></div>
+      <button id="btnSubred">Calcular subred</button><div id="resultadoSubred" class="salida" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="herramientas" id="binario">
+    <p class="etiqueta">APRENDE CON BITS</p><h2>Simulador binario y operación AND</h2>
+    <p>Cambia los valores o pulsa los interruptores para ver cómo la máscara filtra los bits de la IP.</p>
+    <div class="panel">
+      <div class="campos"><div><label for="octetoIP">Octeto de IP (0–255)</label><input type="number" id="octetoIP" min="0" max="255" value="192"></div>
+      <div><label for="octetoMascara">Octeto de máscara (0–255)</label><input type="number" id="octetoMascara" min="0" max="255" value="224"></div></div>
+      <div id="resultadoBinario" aria-live="polite"></div><p class="subtexto">Pulsa un bit para alternar entre 0 y 1 en la máscara.</p><div id="interruptores" class="interruptores"></div>
+    </div>
+  </section>
+
+  <section class="herramientas" id="progreso">
+    <p class="etiqueta">TU APRENDIZAJE</p><h2>Progreso de estudio</h2><p>Marca los temas cuando termines de estudiarlos.</p>
+    <div class="panel"><div class="barra-progreso"><div id="barraAvance"></div></div><p id="textoAvance" aria-live="polite">0 de 4 temas completados</p>
+      <p class="subtexto">El progreso se conserva en este navegador.</p>
+    </div>
+  </section>
+
+  <section class="herramientas" id="practica">
+    <p class="etiqueta">PON A PRUEBA TUS CONOCIMIENTOS</p><h2>Quiz de subnetting</h2><p>Responde la pregunta y revela la explicación cuando quieras.</p>
+    <div class="panel"><p id="preguntaQuiz">Cargando pregunta...</p><div id="opcionesQuiz" class="opciones-quiz"></div><p id="estadoQuiz" aria-live="polite"></p>
+      <button id="btnNuevaPregunta">Nueva pregunta</button><button id="btnSolucion" class="boton-secundario">Revelar solución paso a paso</button><div id="solucionQuiz" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="herramientas" id="casos">
+    <p class="etiqueta">APLICACIÓN REAL</p><h2>Diseña la red de una empresa</h2><p>La red privada 192.168.10.0/24 debe atender a tres áreas.</p>
+    <div class="panel"><table><thead><tr><th>Departamento</th><th>Hosts necesarios</th></tr></thead><tbody><tr><td>Ventas</td><td>50</td></tr><tr><td>TI</td><td>10</td></tr><tr><td>Servidores</td><td>2</td></tr></tbody></table>
+      <p>¿Qué método permite asignar bloques de diferentes tamaños?</p>
+      <div class="opciones-quiz"><button class="respuesta-caso" data-correcta="false">FLSM: todas las subredes deben ser iguales</button><button class="respuesta-caso" data-correcta="true">VLSM: cada departamento puede usar otra máscara</button></div>
+      <p id="respuestaCaso" aria-live="polite"></p><button id="btnMostrarCaso" class="boton-secundario">Mostrar solución propuesta</button><div id="solucionCaso"></div>
+    </div>
+  </section>
+
+  <section class="herramientas" id="recursos">
+    <p class="etiqueta">CONSULTA RÁPIDA</p><h2>Tabla CIDR, máscaras y wildcards</h2><p>Busca un prefijo o consulta la tabla completa del /8 al /30.</p>
+    <div class="panel"><div class="campos"><div><label for="buscarPrefijo">Prefijo para consultar (8–30)</label><input type="number" id="buscarPrefijo" min="8" max="30" value="24"></div><div class="alinear-final"><button id="btnTabla">Consultar prefijo</button></div></div><div id="resultadoTabla" aria-live="polite"></div></div>
+    <div class="tabla-scroll"><table id="tablaCIDR"><thead><tr><th>CIDR</th><th>Máscara</th><th>Wildcard</th><th>Direcciones</th><th>Hosts habituales</th></tr></thead><tbody></tbody></table></div>
+    <h3>Comandos útiles de redes</h3>
+    <div class="comando"><strong>Windows · configuración IP</strong><code>ipconfig</code><button class="copiar" data-copiar="ipconfig">Copiar</button></div>
+    <div class="comando"><strong>Windows · configuración detallada</strong><code>ipconfig /all</code><button class="copiar" data-copiar="ipconfig /all">Copiar</button></div>
+    <div class="comando"><strong>Linux · direcciones IP</strong><code>ip addr</code><button class="copiar" data-copiar="ip addr">Copiar</button></div>
+    <div class="comando"><strong>Linux · tabla de rutas</strong><code>ip route</code><button class="copiar" data-copiar="ip route">Copiar</button></div>
+    <div class="comando"><strong>Cisco IOS · estado de interfaces</strong><code>show ip interface brief</code><button class="copiar" data-copiar="show ip interface brief">Copiar</button></div>
+    <div class="comando"><strong>Cisco IOS · tabla de rutas</strong><code>show ip route</code><button class="copiar" data-copiar="show ip route">Copiar</button></div>
+    <div id="mensajeCopia" class="subtexto" aria-live="polite"></div>
+    <div class="panel descarga"><h3>Guía rápida de subnetting</h3><p>Imprime el material o guárdalo como PDF desde tu navegador.</p><button id="btnPDF">Imprimir / Guardar como PDF</button></div>
+  </section>
+
+  <section class="herramientas" id="comparacion">
+    <p class="etiqueta">REPASO FINAL</p><h2>Diferencias principales</h2>
+    <table><thead><tr><th>Concepto</th><th>¿Para qué sirve?</th></tr></thead><tbody>
+      <tr><td>IPv4</td><td>Direccionar interfaces con direcciones de 32 bits.</td></tr>
+      <tr><td>FLSM</td><td>Dividir una red en subredes del mismo tamaño.</td></tr>
+      <tr><td>VLSM</td><td>Dividir una red en subredes de distintos tamaños.</td></tr>
+      <tr><td>CIDR</td><td>Representar bloques mediante prefijos y resumir rutas.</td></tr>
+    </tbody></table>
+  </section>
+</main>
+<footer><p>NetAcademy · Fundamentos de Redes</p><p>Material educativo sobre IPv4 y subnetting</p></footer>
+</body>
+</html>
